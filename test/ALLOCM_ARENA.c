@@ -51,6 +51,8 @@ main(void)
 	je_thread_t threads[NTHREADS];
 	unsigned i;
 
+    je_free(je_malloc(3)); //init je_malloc
+
 	malloc_printf("Test begin\n");
 
 	for (i = 0; i < NTHREADS; i++) {

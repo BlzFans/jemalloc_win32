@@ -4,15 +4,15 @@ setlocal
 
 if exist "%VS80COMNTOOLS%vsvars32.bat" (
     call "%VS80COMNTOOLS%vsvars32.bat"
-)else (
+) else (
     call "%VS90COMNTOOLS%vsvars32.bat"
 )
 
-set CC=cl /nologo /MT /O2 /W3 /c /wd4146 /wd4244 /D_REENTRANT /Iinclude /Iinclude/msvc_compat /DWIN32_LEAN_AND_MEAN /D_WIN32_WINNT=0x0500
+set CC=cl /nologo /MT /O2 /W3 /c /wd4146 /wd4244 /DSTATIC_BUILD /D_REENTRANT /Iinclude /Iinclude/msvc_compat /DWIN32_LEAN_AND_MEAN /D_WIN32_WINNT=0x0500
 set LINKER=link /nologo  lib\jemalloc.lib
 
 rem debug
-rem set CC=cl /nologo /DJEMALLOC_DEBUG /MTd /Od /Zi /W3 /c /wd4146 /wd4244 /D_REENTRANT /Iinclude /Iinclude/msvc_compat /DWIN32_LEAN_AND_MEAN /D_WIN32_WINNT=0x0500
+rem set CC=cl /nologo /DJEMALLOC_DEBUG /MTd /Od /Zi /W3 /c /wd4146 /wd4244 /DSTATIC_BUILD /D_REENTRANT /Iinclude /Iinclude/msvc_compat /DWIN32_LEAN_AND_MEAN /D_WIN32_WINNT=0x0500
 rem set LINKER=link /nologo /DEBUG lib\jemallocD.lib
 
 %CC% test\*.c

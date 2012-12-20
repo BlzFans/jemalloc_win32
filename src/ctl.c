@@ -1492,7 +1492,7 @@ arenas_extend_ctl(const size_t *mib, size_t miblen, void *oldp, size_t *oldlenp,
     void *newp, size_t newlen)
 {
 	int ret;
-	unsigned narenas;
+    unsigned narenas; 
 
 	malloc_mutex_lock(&ctl_mtx);
 	READONLY();
@@ -1500,8 +1500,8 @@ arenas_extend_ctl(const size_t *mib, size_t miblen, void *oldp, size_t *oldlenp,
 		ret = EAGAIN;
 		goto label_return;
 	}
-	
-	narenas = ctl_stats.narenas - 1;
+    
+    narenas = ctl_stats.narenas - 1;
 	READ(narenas, unsigned);
 
 	ret = 0;

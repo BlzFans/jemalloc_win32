@@ -113,9 +113,9 @@
 #elif _MSC_VER
 #  define JEMALLOC_ATTR(s)
 #  ifdef DLLEXPORT
-#    define JEMALLOC_EXPORT //__declspec(dllexport)
+#    define JEMALLOC_EXPORT __declspec(dllexport)
 #  else
-#    define JEMALLOC_EXPORT //__declspec(dllimport)
+#    define JEMALLOC_EXPORT __declspec(dllimport)
 #  endif
 #  define JEMALLOC_ALIGNED(s) __declspec(align(s))
 #  define JEMALLOC_SECTION(s) __declspec(allocate(s))
@@ -126,6 +126,11 @@
 #  define JEMALLOC_ALIGNED(s)
 #  define JEMALLOC_SECTION(s)
 #  define JEMALLOC_NOINLINE
+#endif
+
+#ifdef STATIC_BUILD
+#  undef JEMALLOC_EXPORT
+#  define JEMALLOC_EXPORT
 #endif
 
 /* Defined if sbrk() is supported. */
