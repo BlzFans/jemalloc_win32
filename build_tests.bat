@@ -44,6 +44,9 @@ set file=thread_arena
 set file=thread_tcache_enabled
 %LINKER% /out:test\%file%.exe %file%.obj
 
+set file=ALLOCM_ARENA
+%LINKER% /out:test\%file%.exe %file%.obj
+
 del *.obj
 
 pause 
