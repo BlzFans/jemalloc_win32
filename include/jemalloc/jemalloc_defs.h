@@ -128,7 +128,7 @@
 #  define JEMALLOC_NOINLINE
 #endif
 
-#ifdef STATIC_BUILD
+#ifdef JEMALLOC_STATIC_BUILD
 #  undef JEMALLOC_EXPORT
 #  define JEMALLOC_EXPORT
 #endif
