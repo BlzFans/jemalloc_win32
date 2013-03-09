@@ -255,6 +255,11 @@
 /* #undef JEMALLOC_PURGE_MADVISE_DONTNEED */
 /* #undef JEMALLOC_PURGE_MADVISE_FREE */
 
+/*
+ * Define if operating system has alloca.h header.
+ */
+/* #undef JEMALLOC_HAS_ALLOCA_H */
+
 /* sizeof(void *) == 2^LG_SIZEOF_PTR. */
 #define LG_SIZEOF_PTR 2
 
